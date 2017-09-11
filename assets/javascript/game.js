@@ -1,12 +1,16 @@
 //hangman! use some for loops and an object or summat
 
+//DO NOT push letters to letters guessed if they're part of the currentWord!!
+
 //.splice out underscore to add letter
-//charAt for loop i 
+//.charAt for loop i 
 
 // id win (#)
 // id currentWord (the answer -- random from array)
 // id guessesLeft
 // id userGuess (already guessed)
+// id next
+// id reset
 
 var win = 0;
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -38,12 +42,11 @@ render();
     console.log(userGuess);
 
 	if (guessesLeft > 0) {
-	    // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+	//     // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
 	  if (options.includes(userGuess) === true) {
 
 	    if (currentWord.includes(userGuess)) {
-	    	werd.splice(userGuess, 1, userGuess);
-	        //werd.push(userGuess);
+    		compare(userGuess);
 	   } else {
             guessesLeft--;
 	   }
@@ -64,9 +67,37 @@ render();
 		console.log(currentWord);
 	}
 
-    render ();
+    if (werd.includes("_") === false) {
+		win++;
+	}
+
+    render();
   }
 }; //end bigass function
+
+document.getElementById("reset").onclick = function(event) {
+	console.log("i get here");
+	win = 0;
+	guessesLeft = 10;
+	userPick.splice(0,11);
+	werd.splice(0,11);
+	currentWord = answers[Math.floor(Math.random() * answers.length)];
+	console.log(currentWord);
+	hideWord();
+	compare();
+	render();
+}
+
+document.getElementById("next").onclick = function(event) {
+	guessesLeft = 10;
+	userPick.splice(0,11);
+	werd.splice(0,11);
+	currentWord = answers[Math.floor(Math.random() * answers.length)];
+	console.log(currentWord);
+	hideWord();
+	compare();
+	render();
+}
 
 // DONE print guesses guessed, number guesses left, number wins, and blanks for answer to screen
 function render () {
@@ -76,17 +107,21 @@ function render () {
         document.getElementById("userGuess").innerHTML = userPick.join(" ");
 }
 
-// DONE double whammy! (1) alert if duplicate guessed, and (2) push guesses to letters already guessed array
+//double whammy! (1) alert if duplicate guessed, and (2) push guesses to letters already guessed array
 function guessArray (val1) {
 	if (userPick.includes(val1) === true) {
         alert("You've already guessed that one!");
         guessesLeft++;
-    } else if ((options.includes(val1) === true) && (currentWord.includes(userGuess) === false)) {
+	} 
+	if (options.includes(val1)) {
 	userPick.push(val1);
-	}
+	} 
+	if (currentWord.includes(val1)) {
+	userPick.pop(val1);
+    }
 }
 
-//still working on this one.... to get currentWord to turn into _ _ _ _
+//to get currentWord to turn into _ _ _ _
 function hideWord () {
     for (i = 0; i < currentWord.length; i++) {
       werd.push("_");
@@ -95,9 +130,17 @@ function hideWord () {
 
 function compare (val1) {
     for (i = 0; i < currentWord.length; i++) {
-        
+        if (currentWord.charAt(i) === val1) {
+            werd.splice(i, 1, val1);
+        }
     }
 }
+
+// function win () {
+// 	if (werd.includes("_") === false) {
+// 		win++;
+// 	}
+// }
 
 //placeholder
 /*function winner() {
