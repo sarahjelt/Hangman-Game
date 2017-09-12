@@ -1,15 +1,15 @@
 body {
 	padding: 10px 10px;
-	background: url(../images/linedpaper.png);
+	background: url(../images/parchment.jpg);
 }
 
 h1 {
 	font-size: 54px;
 	font-weight: bold;
 	margin-top: 20px;
+	margin-bottom: 35px;
 	text-align: center;
-	font-family: 'Homemade apple', cursive;
-	color: darkblue;
+	font-family: 'Princess Sofia', cursive;
 }
 
 h2 {
@@ -17,15 +17,13 @@ h2 {
 	font-size: 32px;
 	text-align: center;
 	margin: 22px 0px;
-	color: darkblue;
 	line-height: 50px;
 }
 
 h3 {
-	font-family: 'Homemade apple', cursive;
-	font-size: 22px;
-	text-align: center;
-	color: darkblue;
+	font-family: 'Princess Sofia', cursive;
+	font-size: 26px;
+	/*text-align: center;*/
 	line-height: 32px;
 	margin: 15px 0px;
 }
@@ -34,33 +32,42 @@ p {
 	font-size: 32px;
 	font-family: 'Reenie Beanie', cursive;
 	line-height: 40px;
-	color: darkblue;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 div {
-	width: 100%;
-	text-align: center;
+	width: calc(50% - 20px);
 }
 
 img {
-	padding: 0px 0px 10px 40px;
+	padding: 20px 0px 10px 80px;
 }
 
 button {
-	background-color: darkblue;
-	color: lavender;
+	background-color: white;
+	color: black;
 	font-size: 24px;
-	font-family: 'Reenie Beanie', cursive;
+	font-family: 'Princess Sofia', cursive;
 	text-align: center;
 	margin: 20px 10px;
 	padding: 10px;
 	border-radius: 10px;
-	border: 3px solid lavender;
-	cursor: pointer;
+	cursor: url("../images/wand.png"), pointer;
 }
 
-button:hover {
-
+.left {
+	float: left;
 }
+
+.right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+/*button:hover {
+
+}*/
 

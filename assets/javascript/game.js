@@ -15,7 +15,13 @@
 var win = 0;
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var answers = [
-  "hippogriff", "mandrake", "niffler", "acromantula", "basilisk", "dragon", "pixie", "billiwig", "puffskein", "unicorn", "centaur"
+  "hippogriff", "mandrake", "niffler", "acromantula", "basilisk", "dragon", "pixie", "billiwig", "puffskein", "unicorn", "centaur", 
+  "erumpent", "thestral", "bowtruckle", "leprechaun", "kappa", "hinkypunk", "merpeople", "ashwinder", "augurey", "bundimun", "chimaera", 
+  "chizpurfle", "clabbert", "crup", "demiguise", "diricawl", "doxy", "dugbog", "erkling", "fairy", "flobberworm", "fwooper", 
+  "glumbumble", "gnome", "graphorn", "griffin", "grindylow", "hippocampus", "horklump", "imp", "jarvey", "jobberknoll", "kelpie", 
+  "knarl", "kneazle", "lethifold", "lobalug", "manticore", "moke", "mooncalf", "murtlap", "nogtail", "nundu", "occamy", 
+  "phoenix", "plimpy", "pogrebin", "porlock", "quintaped", "ramora", "runespoor", "salamander", "shrake", "snidget", "sphinx", 
+  "streeler", "tebo", "troll", "werewolf", "yeti"
   ];
 
 var guessesLeft = 10;
@@ -107,7 +113,8 @@ function render () {
         document.getElementById("userGuess").innerHTML = userPick.join(" ");
 }
 
-//double whammy! (1) alert if duplicate guessed, and (2) push guesses to letters already guessed array
+//(1) alert if duplicate guessed, and (2) push guesses to letters already guessed array / (3) pop guesses from letters
+// guessed array if they are in currentWord
 function guessArray (val1) {
 	if (userPick.includes(val1) === true) {
         alert("You've already guessed that one!");

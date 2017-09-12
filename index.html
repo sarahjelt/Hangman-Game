@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+	<title>Magical Creatures Hangman Game</title>
 	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Homemade+Apple|Reenie+Beanie" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Homemade+Apple|Reenie+Beanie|Princess+Sofia" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-  <h1>Hangman</h1>
-	<h2>Help save the guy from the gallows by figuring out the word!</h2>
-	<div>
+  <h1>Magical Creatures Hangman</h1>
+
+	<p class="center">Help save the guy from the gallows by guessing the correct magical creature</p>
+	<p class="center">(Refer to Fantastic Beasts and Where to Find Them by Newt Scamander if you need help!)</p>
+
+  <div class="left">
 		<img src="assets/images/gallows.gif">
-	</div>
-	<div>
+	<div class="center">
 	  <button type="button" id="next">Next</button>
 	  <button type="button" id="reset">Reset</button>
 	</div>
+  </div>
+
+  <div class="right">
 	<h3>Wins</h3>
 	  <p><span id="win"></span></p>
 	  	  <br>
@@ -29,6 +35,7 @@
 	<h3>Letters already guessed</h3>
 	  <p><span id="userGuess"></span></p>
 	  	  <br>
+  </div>
 
 <script src="assets/javascript/game.js"></script>
 
