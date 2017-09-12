@@ -63,11 +63,14 @@ render();
 	      alert("Psst — letters only!");
 	    }
 
-	// reset counter and tally loss, clear past guesses
+	// loss function -- reset word, clear past guesses
 	if (guessesLeft === 0) {
 		guessesLeft = 10;
 		userPick.splice(0,11);
+		werd.splice(0, werd.length);
+		console.log("i get here");
 		currentWord = answers[Math.floor(Math.random() * answers.length)];
+		hideWord ();
 		console.log(currentWord);
 	}
 
@@ -142,8 +145,8 @@ function compare (val1) {
     }
 }
 
-// function win () {
-// 	if (werd.includes("_") === false) {
+// function lose () {
+// 	if () {
 // 		win++;
 // 	}
 // }
