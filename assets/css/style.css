@@ -37,6 +37,7 @@ p {
 
 div {
 	width: calc(50% - 20px);
+	margin-top: 1.5%;
 }
 
 img {
@@ -50,7 +51,7 @@ button {
 	font-family: 'Princess Sofia', cursive;
 	text-align: center;
 	margin: 20px 10px;
-	padding: 10px;
+	padding: 10px 20px;
 	border-radius: 10px;
 	cursor: url("../images/wand.png"), pointer;
 }

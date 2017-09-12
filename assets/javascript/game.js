@@ -61,12 +61,10 @@ render();
 	//alert if user presses non A–Z key
 	    if (options.includes(userGuess) === false) {
 	      alert("Psst — letters only!");
-	      //userPick.pop();
 	    }
 
-	// DONE? reset counter and tally loss, clear past guesses
+	// reset counter and tally loss, clear past guesses
 	if (guessesLeft === 0) {
-		// loss++;
 		guessesLeft = 10;
 		userPick.splice(0,11);
 		currentWord = answers[Math.floor(Math.random() * answers.length)];
@@ -116,11 +114,11 @@ function render () {
 //(1) alert if duplicate guessed, and (2) push guesses to letters already guessed array / (3) pop guesses from letters
 // guessed array if they are in currentWord
 function guessArray (val1) {
-	if (userPick.includes(val1) === true) {
+	if (userPick.includes(val1)) {
         alert("You've already guessed that one!");
         guessesLeft++;
 	} 
-	if (options.includes(val1)) {
+	if (options.includes(val1) === true && userPick.includes(val1) === false) {
 	userPick.push(val1);
 	} 
 	if (currentWord.includes(val1)) {
@@ -135,6 +133,7 @@ function hideWord () {
     }
 }
 
+//replace _ with letter at correct spot
 function compare (val1) {
     for (i = 0; i < currentWord.length; i++) {
         if (currentWord.charAt(i) === val1) {
