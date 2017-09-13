@@ -72,6 +72,8 @@ document.onkeyup = function(event) {
   //winner winner
   if (werd.includes("_") === false) {
     win++;
+    displayWinner();
+    goAwayFireworks();
     }
 
     render();
@@ -142,5 +144,15 @@ function compare (val1) {
     if (currentWord.charAt(i) === val1) {
       werd.splice(i, 1, val1);
       }
+    }
+}
+
+function displayWinner () {
+	document.getElementById("winner").setAttribute ("class", "display");
+}
+
+function goAwayFireworks () {
+  document.getElementById("winner").onclick = function(event) {
+    document.getElementById("winner").setAttribute ("class", "hidden");
     }
 }
