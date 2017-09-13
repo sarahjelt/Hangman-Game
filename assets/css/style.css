@@ -1,3 +1,4 @@
+/* hangman styles */
 body {
 	padding: 10px 10px;
 	background: url(../images/parchment.jpg);
@@ -68,7 +69,5 @@ button {
 	text-align: center;
 }
 
-/*button:hover {
 
-}*/
 
