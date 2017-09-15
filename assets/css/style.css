@@ -1,4 +1,33 @@
 /* hangman styles */
+/* begin sparkley pen by simon goellner */
+$buttonBackground: #2c3e50;
+$buttonColor: rgba(255,255,255,1);
+
+.sparkley {
+
+  background: lighten( $buttonBackground , 10% );
+  color: $buttonColor;
+  border: none;
+
+  padding: 16px 36px;
+  font-weight: normal;
+  
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  
+  box-shadow: 0 38px 32px -23px black;
+  margin: 0 1em 1em;
+  
+  &:hover {
+   
+    background: $buttonBackground;
+    color: transparentize( $buttonColor,0.8 );
+    
+  }
+  
+}
+/* end sparkley */
+
 html {
 	position: relative;
 	padding: 0px;
@@ -7,7 +36,8 @@ html {
 
 body {
 	padding: 10px 10px;
-	background: url(../images/parchment.jpg);
+	background-color: #e6dfec;
+	/*background: url(../images/parchment.jpg);*/
 }
 
 h1 {
@@ -41,7 +71,7 @@ p {
 
 div {
 	width: 31.99%;
-	margin-top: 1.5%;
+	margin-top: 4.5%;
 }
 
 button {
@@ -74,13 +104,13 @@ button {
 }
 
 .smaller {
-	font-size: 22px;
+	font-size: 26px;
 	margin-top: 12px;
 }
 
 .height {
 	vertical-align: middle;
-	padding: 10% 0;
+	padding: 7% 0;
 }
 
 .clear:after {
@@ -104,4 +134,13 @@ button {
 	bottom: 0;
 	right: 0;
 }
+
+
+
+
+
+
+
+
+
 
