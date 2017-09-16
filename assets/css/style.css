@@ -71,7 +71,7 @@ p {
 
 div {
 	width: 31.99%;
-	margin-top: 4.5%;
+	margin-top: 3%;
 }
 
 button {
@@ -86,6 +86,11 @@ button {
 	cursor: url("../images/wand.png"), pointer;
 }
 
+img {
+	height: 70%;
+	width: 70%;
+}
+
 .left {
 	float: left;
 	padding-left: 2%;
@@ -93,6 +98,8 @@ button {
 
 .child {
 	width: 100%;
+	text-align: center;
+	margin-left: -10%;
 }
 
 .right {

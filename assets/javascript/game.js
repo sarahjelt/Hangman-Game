@@ -9,6 +9,7 @@
 
 var win = 0;
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lossOptions = null;
 var answers = ["hippogriff", "mandrake", "niffler", "acromantula", "basilisk", "dragon", "pixie", "billiwig", "puffskein", "unicorn", "centaur", 
   "erumpent", "thestral", "bowtruckle", "leprechaun", "kappa", "hinkypunk", "merpeople", "ashwinder", "augurey", "bundimun", "chimaera", 
   "chizpurfle", "clabbert", "crup", "demiguise", "diricawl", "doxy", "dugbog", "erkling", "fairy", "flobberworm", "fwooper", 
@@ -27,6 +28,11 @@ var werd = [];
 
 // Randomly chooses a choice from the options array. This is the Computer's guess.
 var currentWord = answers[Math.floor(Math.random() * answers.length)];
+
+function random() {
+  answers[Math.floor(Math.random() * answers.length)]
+}
+
 console.log(currentWord);
 
 //call these functions before user keypresses
@@ -34,14 +40,14 @@ hideWord(currentWord);
 render();
 
 // bigass keypress function
-document.onkeyup = function(event) {
+document.onkeypress = function(event) {
   // determines which key was pressed
   var userGuess = event.key;
   // key presses get pushed to array onscreen (letters already guessed)
   guessArray(userGuess);
   console.log(userGuess);
 
-  if (guessesLeft > 0) {
+  if (guessesLeft > 0 && werd.includes("_") === true) {
   // This logic decrements guesses if they are A–Z characters 
     if (options.includes(userGuess) === true) {
 
@@ -58,22 +64,22 @@ document.onkeyup = function(event) {
     alert("Psst — letters only!");
     }
 
-  // loss function -- reset word, clear past guesses
+  // loss function -- reset word, clear past guesses, reset guesses left count, show answer
   if (guessesLeft === 0) {
-    guessesLeft = 10;
     userPick.splice(0,11);
     werd.splice(0, werd.length);
-    currentWord = answers[Math.floor(Math.random() * answers.length)];
-    hideWord ();
-    console.log(currentWord);
+    showAnswer();
+    //keep key presses from registering somehow
     }
 
-  //winner winner
-  if (werd.includes("_") === false) {
-    win++;
-    displayWinner();
-    setTimeout(goAwayFireworks, 1500);
-    }
+  //winner winner -- fireworks appears, win increments
+  // if (werd.includes("_") === false) {
+  //   console.log("i get here");
+  //   win++;
+  //   displayWinner();
+  //   setTimeout(goAwayFireworks, 1500);
+  //   setTimeout(splice, 2200);
+  //   }
 
     render();
 }; //end bigass function
@@ -105,7 +111,7 @@ document.getElementById("next").onclick = function(event) {
 }
 
 // print guesses guessed, number of guesses left, number wins, and blanks for answer to screen
-function render () {
+function render() {
   document.getElementById("win").innerHTML = win;
   document.getElementById("currentWord").innerHTML = werd.join(" ");
   document.getElementById("guessesLeft").innerHTML = guessesLeft;
@@ -114,7 +120,7 @@ function render () {
 
 //(1) alert if duplicate guessed, and (2) push guesses to letters already guessed array / (3) pop guesses from letters
 // guessed array if they are in currentWord
-function guessArray (val1) {
+function guessArray(val1) {
   if (userPick.includes(val1)) {
         alert("You've already guessed that one!");
         guessesLeft++;
@@ -131,29 +137,51 @@ function guessArray (val1) {
 }
 
 //to get currentWord to turn into _ _ _ _
-function hideWord () {
+function hideWord() {
   for (i = 0; i < currentWord.length; i++) {
     werd.push("_");
     }
 }
 
 //replace _ with letter at correct spot
-function compare (val1) {
+function compare(val1) {
   for (i = 0; i < currentWord.length; i++) {
     if (currentWord.charAt(i) === val1) {
       werd.splice(i, 1, val1);
       }
     }
+    if (werd.includes("_") === false) {
+      console.log("i get here");
+      win++;
+      displayWinner();
+      setTimeout(goAwayFireworks, 1500);
+      setTimeout(splice, 2200);
+    }
 }
 
-function displayWinner () {
+function displayWinner() {
 	document.getElementById("winner").setAttribute ("class", "display");
 }
 
-function goAwayFireworks () {
+function goAwayFireworks() {
   document.getElementById("winner").setAttribute ("class", "hidden");
 }
 
+function showAnswer() {
+  werd.push(currentWord.split("").join(" "));
+}
+
+function splice() {
+  userPick.splice(0,11);
+  werd.splice(0,11);
+  currentWord = answers[Math.floor(Math.random() * answers.length)];
+  console.log(currentWord);
+  guessesLeft = 10;
+  hideWord();
+  compare();
+  render();
+}
+//end my game functionality code
 
 //begin sparkley pen by simon goellner
 $(function() {
