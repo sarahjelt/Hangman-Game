@@ -1,4 +1,121 @@
-/* hangman styles */
+/* my hangman styles */
+html {
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	padding: 10px 10px;
+	background-color: #e6dfec;
+}
+
+h1 {
+	font-size: 54px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 35px;
+	text-align: center;
+	font-family: 'Princess Sofia', cursive;
+	color: #4fa1a2;
+}
+
+h2 {
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 32px;
+	text-align: center;
+	margin: 22px 0px;
+	line-height: 50px;
+}
+
+h3 {
+	font-family: 'Princess Sofia', cursive;
+	font-size: 26px;
+	margin: 20px 0px;
+	color: #982474;
+}
+
+p {
+	font-size: 32px;
+	font-family: 'Reenie Beanie', cursive;
+	margin-top: 12px 0px;
+}
+
+div {
+	width: 31.99%;
+	margin-top: 3%;
+}
+
+button {
+	background-color: white;
+	color: #4fa1a2;
+	font-size: 24px;
+	font-family: 'Princess Sofia', cursive;
+	text-align: center;
+	margin-left: 0;
+	margin-right: 3%;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: url("../images/wand.png"), pointer;
+}
+
+img {
+	height: 70%;
+	width: 70%;
+}
+
+.left {
+	float: left;
+	padding-left: 2%;
+}
+
+.child {
+	width: 100%;
+	text-align: center;
+	margin-left: -10%;
+}
+
+.center {
+	text-align: center;
+}
+
+.smaller {
+	font-size: 26px;
+	margin-top: 12px;
+}
+
+.height {
+	vertical-align: middle;
+	padding: 3% 0;
+}
+
+.clear:after {
+	clear: both;
+}
+
+.display {
+	display: initial;
+}
+
+.hidden {
+	display: none;
+}
+
+.word {
+	width: 100%;
+}
+
+#winner {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+
 /* begin sparkley pen by simon goellner */
 $buttonBackground: #2c3e50;
 $buttonColor: rgba(255,255,255,1);
@@ -27,121 +144,6 @@ $buttonColor: rgba(255,255,255,1);
   
 }
 /* end sparkley */
-
-html {
-	position: relative;
-	padding: 0px;
-	margin: 0px;
-}
-
-body {
-	padding: 10px 10px;
-	background-color: #e6dfec;
-	/*background: url(../images/parchment.jpg);*/
-}
-
-h1 {
-	font-size: 54px;
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 35px;
-	text-align: center;
-	font-family: 'Princess Sofia', cursive;
-}
-
-h2 {
-	font-family: 'Reenie Beanie', cursive;
-	font-size: 32px;
-	text-align: center;
-	margin: 22px 0px;
-	line-height: 50px;
-}
-
-h3 {
-	font-family: 'Princess Sofia', cursive;
-	font-size: 26px;
-	margin: 20px 0px;
-}
-
-p {
-	font-size: 32px;
-	font-family: 'Reenie Beanie', cursive;
-	margin-top: 12px 0px;
-}
-
-div {
-	width: 31.99%;
-	margin-top: 3%;
-}
-
-button {
-	background-color: white;
-	color: black;
-	font-size: 24px;
-	font-family: 'Princess Sofia', cursive;
-	text-align: center;
-	margin: 2%;
-	padding: 10px 20px;
-	border-radius: 10px;
-	cursor: url("../images/wand.png"), pointer;
-}
-
-img {
-	height: 70%;
-	width: 70%;
-}
-
-.left {
-	float: left;
-	padding-left: 2%;
-}
-
-.child {
-	width: 100%;
-	text-align: center;
-	margin-left: -10%;
-}
-
-.right {
-	float: right;
-}
-
-.center {
-	text-align: center;
-}
-
-.smaller {
-	font-size: 26px;
-	margin-top: 12px;
-}
-
-.height {
-	vertical-align: middle;
-	padding: 7% 0;
-}
-
-.clear:after {
-	clear: both;
-}
-
-.display {
-	display: initial;
-}
-
-.hidden {
-	display: none;
-}
-
-#winner {
-	position: absolute;
-	height: 100vh;
-	width: 100%;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-}
-
 
 
 

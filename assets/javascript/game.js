@@ -1,15 +1,13 @@
 //hangman!
-
 // id win (#)
-// id currentWord (the answer -- random from array)
-// id guessesLeft
-// id userGuess (already guessed)
-// id next
-// id reset
+// id currentWord (the answer -- random from answers [])
+// id guessesLeft (#)
+// id userGuess (letters already guessed)
+// id next (button)
+// id reset (button)
 
 var win = 0;
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var lossOptions = null;
 var answers = ["hippogriff", "mandrake", "niffler", "acromantula", "basilisk", "dragon", "pixie", "billiwig", "puffskein", "unicorn", "centaur", 
   "erumpent", "thestral", "bowtruckle", "leprechaun", "kappa", "hinkypunk", "merpeople", "ashwinder", "augurey", "bundimun", "chimaera", 
   "chizpurfle", "clabbert", "crup", "demiguise", "diricawl", "doxy", "dugbog", "erkling", "fairy", "flobberworm", "fwooper", 
@@ -29,17 +27,13 @@ var werd = [];
 // Randomly chooses a choice from the options array. This is the Computer's guess.
 var currentWord = answers[Math.floor(Math.random() * answers.length)];
 
-function random() {
-  answers[Math.floor(Math.random() * answers.length)]
-}
-
 console.log(currentWord);
 
 //call these functions before user keypresses
 hideWord(currentWord);
 render();
 
-// bigass keypress function
+// big keypress function
 document.onkeypress = function(event) {
   // determines which key was pressed
   var userGuess = event.key;
@@ -69,24 +63,14 @@ document.onkeypress = function(event) {
     userPick.splice(0,11);
     werd.splice(0, werd.length);
     showAnswer();
-    //keep key presses from registering somehow
     }
 
-  //winner winner -- fireworks appears, win increments
-  // if (werd.includes("_") === false) {
-  //   console.log("i get here");
-  //   win++;
-  //   displayWinner();
-  //   setTimeout(goAwayFireworks, 1500);
-  //   setTimeout(splice, 2200);
-  //   }
-
     render();
-}; //end bigass function
+}; //end big function
 
+//two button onclick events
 //click reset button
 document.getElementById("reset").onclick = function(event) {
-  console.log("i get here");
   win = 0;
   guessesLeft = 10;
   userPick.splice(0,11);
@@ -110,6 +94,7 @@ document.getElementById("next").onclick = function(event) {
   render();
 }
 
+//bulk of game functions
 // print guesses guessed, number of guesses left, number wins, and blanks for answer to screen
 function render() {
   document.getElementById("win").innerHTML = win;
@@ -143,7 +128,7 @@ function hideWord() {
     }
 }
 
-//replace _ with letter at correct spot
+//replace _ with letter at correct spot, increment wins and display winner screen, run autogenerate-new-word function
 function compare(val1) {
   for (i = 0; i < currentWord.length; i++) {
     if (currentWord.charAt(i) === val1) {
@@ -151,7 +136,6 @@ function compare(val1) {
       }
     }
     if (werd.includes("_") === false) {
-      console.log("i get here");
       win++;
       displayWinner();
       setTimeout(goAwayFireworks, 1500);
@@ -159,18 +143,22 @@ function compare(val1) {
     }
 }
 
+//fireworks appear congrats you're a winner
 function displayWinner() {
 	document.getElementById("winner").setAttribute ("class", "display");
 }
 
+//fireworks have worn out their welcome, disappear
 function goAwayFireworks() {
   document.getElementById("winner").setAttribute ("class", "hidden");
 }
 
+//pushes rest of letters to current word so you can see answer after losing
 function showAnswer() {
   werd.push(currentWord.split("").join(" "));
 }
 
+//makes guessesLeft and letterGuessed automatically reset, new word generate after win
 function splice() {
   userPick.splice(0,11);
   werd.splice(0,11);
@@ -183,10 +171,10 @@ function splice() {
 }
 //end my game functionality code
 
+
 //begin sparkley pen by simon goellner
 $(function() {
 
-  
   // default is varying levels of transparent white sparkles
   $(".sparkley:first").sparkleh();
   
@@ -204,16 +192,7 @@ $(function() {
     count: 80,
     color: ["#660000","#660000","#660000"]
   });
-  
-  
-  
-  // $("p").sparkleh({
-  //   count: 20,
-  //   color: "#00ff00",
-  //   speed: 0.05
-  // });
-  
-  
+
   // an array can be passed, too for colours
   // for an image, the image needs to be fully loaded to set
   // the canvas to it's height/width.
@@ -225,7 +204,6 @@ $(function() {
     speed: 0.4
     });
   });
-
 
 });
 
